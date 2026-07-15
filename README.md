@@ -78,6 +78,14 @@ For Pedro Hedro's setup, copy the English and Portuguese CV PDFs into `documents
 
 Those PDFs and other personal materials are intentionally ignored by Git, so they stay local while Codex can still use them during a session. If a CV path is referenced from outside the container and cannot be read, Codex should state that limitation and avoid inventing profile details.
 
+For a first-pass live search from Codex, run:
+
+```bash
+python tools/codex_job_search.py --query "AI engineer" --query "software engineer" --location "Brazil" --remote remote
+```
+
+The helper wraps the existing LinkedIn and freehire portal CLIs and prints a Markdown shortlist without writing personal tracking data.
+
 ## Quick start
 
 ### 1. Fork and clone

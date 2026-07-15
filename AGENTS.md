@@ -7,7 +7,7 @@ This repository is a personal job-search workspace adapted for Codex. Treat the 
 - Start with `CLAUDE.md` for the candidate-facing workflow, profile expectations, and document verification checklist.
 - Use `.claude/commands/*.md` as command playbooks. When the user asks for `/setup`, `/scrape`, `/apply`, `/rank`, `/interview`, `/outcome`, `/expand`, `/upskill`, `/add-template`, `/add-portal`, or `/reset`, read the matching file and follow its workflow manually in Codex.
 - Use `.claude/skills/job-application-assistant/SKILL.md` and its referenced files as the canonical application workflow for evaluating job fit, tailoring CVs, writing cover letters, and preparing interviews.
-- Use `.claude/skills/job-scraper/SKILL.md` plus `.agents/skills/*/SKILL.md` for job search workflows. Prefer the local portal CLIs when available; use web search only when the relevant workflow calls for it or when live data is needed.
+- Use `.claude/skills/job-scraper/SKILL.md` plus `.agents/skills/*/SKILL.md` for job search workflows. Prefer `python tools/codex_job_search.py` for a first-pass Codex search, then use the local portal CLIs directly for deeper searches; use web search only when the relevant workflow calls for it or when live data is needed.
 - Use `.claude/skills/upskill/SKILL.md` for skill-gap and learning-plan workflows.
 
 ## Candidate Documents
