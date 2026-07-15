@@ -67,6 +67,25 @@ The framework encodes career guidance best practices, including structured evalu
 - LaTeX distribution with `lualatex` and `xelatex`: [TeX Live](https://tug.org/texlive/), [MacTeX](https://tug.org/mactex/), [TinyTeX](https://yihui.org/tinytex/), or [MiKTeX](https://miktex.org/). The CV compiles with `lualatex` (pdflatex often fails on modern MiKTeX installs with `fontawesome5` font-expansion errors); the cover letter compiles with `xelatex` because `cover.cls` requires `fontspec`. If using a minimal TeX install such as TinyTeX or BasicTeX, install the extra packages listed in [SETUP.md](SETUP.md#minimal-tex-install-tinytexbasictex).
 - Optional: `pdftotext` from [poppler](https://poppler.freedesktop.org/) (macOS: `brew install poppler`, Debian/Ubuntu: `apt install poppler-utils`, Windows: `choco install poppler`) — used by `/apply`'s ATS parseability check on the compiled CV. If missing, the check degrades gracefully to a visual keyword review.
 
+## Using this project with Codex
+
+This fork can be driven directly from Codex. The Claude-oriented command and skill files remain useful as workflow playbooks: Codex should read `AGENTS.md`, then follow the relevant `.claude/commands/*.md` or `.claude/skills/*/SKILL.md` file for each job-search task.
+
+For Pedro Hedro's setup, copy the English and Portuguese CV PDFs into `documents/cv/` before profile extraction:
+
+- `CV Pedro Hedro 2026 Eng.pdf`
+- `CV-Pedro-Hedro-2026-pt.pdf`
+
+Those PDFs and other personal materials are intentionally ignored by Git, so they stay local while Codex can still use them during a session. If a CV path is referenced from outside the container and cannot be read, Codex should state that limitation and avoid inventing profile details.
+
+For a first-pass live search from Codex, run:
+
+```bash
+python tools/codex_job_search.py --query "AI engineer" --query "software engineer" --location "Brazil" --remote remote
+```
+
+The helper wraps the existing LinkedIn and freehire portal CLIs and prints a Markdown shortlist without writing personal tracking data.
+
 ## Quick start
 
 ### 1. Fork and clone
